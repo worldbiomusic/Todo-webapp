@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>메뉴</title>
+</head>
+<body>
+<h2>메뉴</h2>
+<hr>
+<a th:href="@{/todos}">TODO 보러 가기</a>
+<div sec:authentication="name">
+    로그인 정보의 name 값
+</div>
+<div sec:authorization="isAuthenticated()">
+    인증된 경우에 표시
+</div>
+<br>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="로그아웃">
+</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

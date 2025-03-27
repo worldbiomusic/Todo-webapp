@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo 목록</title>
+</head>
+<body>
+<h2>ToDo 목록</h2>
+<!--flash msg-->
+<p th:if="${message != null}"
+   th:text="${message}" style="color: blue;">msg</p>
+<p th:if="${errorMessage != null}"
+   th:text="${errorMessage}" style="color: red;">
+    error msg
+</p>
+
+<table border="1" width="300">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>ToDo</th>
+        <th>상세보기</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="todo : ${todos}">
+        <td th:text="${todo.id}"></td>
+        <td th:text="${todo.todo}"></td>
+        <td>
+            <!-- (id=...)가 placeholder에 들어갈 값 지정 = REST 형식-->
+            <a th:href="@{/todos/{id}(id=${todo.id})}">상세보기</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/todos/form}">새로 만들기</a>
+</body>
+</html>
