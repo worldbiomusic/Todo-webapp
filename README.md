@@ -3,14 +3,16 @@
 
 ![img.png](img.png)
 
+![img_1.png](img_1.png)
+
 ## 사용한 기술
 - Spring Framework 6.2.5
 - Spring Boot 3.4.4
 - Spring Security 6.4.4
-- Spring Data JPA
+- Spring Data JPA (JPQL)
 - Thymeleaf
 - Lombok
-- PostgreSQL
+- PostgreSQL (+ pgadmin 4)
 
 [자세히 보기](./build.gradle)
 
