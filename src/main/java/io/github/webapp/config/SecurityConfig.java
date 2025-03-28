@@ -23,6 +23,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authz -> authz
                         // /login은 인증 필요없음
                         .requestMatchers("/login").permitAll()
+                        .requestMatchers("/todos/**").hasAuthority("ADMIN")
                         // 나머지 요청 인증 필요
                         .anyRequest().authenticated())
                 // 폼 로그인 설정

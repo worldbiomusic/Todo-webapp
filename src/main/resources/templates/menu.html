@@ -7,8 +7,14 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 </head>
 <body>
 <h2>메뉴</h2>
+<a sec:authorize="hasAuthority('ADMIN')" th:href="@{/todos}">
+    TODO 보러 가기 (ADMIN)
+</a>
+<br>
+<div sec:authorize="hasAuthority('USER')">
+    USER에게 보이는 div
+</div>
 <hr>
-<a th:href="@{/todos}">TODO 보러 가기</a>
 <div sec:authentication="name">
     로그인 정보의 name 값
 </div>

@@ -1,5 +1,8 @@
 DROP TABLE IF EXISTS todos;
 DROP TABLE IF EXISTS authentications;
+DROP TYPE IF EXISTS role;
+
+CREATE TYPE role as ENUM('ADMIN', 'USER');
 
 CREATE TABLE todos (
     ID serial PRIMARY KEY,
@@ -11,7 +14,8 @@ CREATE TABLE todos (
 
 CREATE TABLE authentications (
     username VARCHAR(50) PRIMARY KEY,
-    password VARCHAR(255) NOT NULL
+    password VARCHAR(255) NOT NULL,
+    authority role NOT NULL
 );
 
 

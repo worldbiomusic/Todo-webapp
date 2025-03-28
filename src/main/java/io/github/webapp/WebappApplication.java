@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
 @RequiredArgsConstructor
@@ -15,13 +16,12 @@ public class WebappApplication {
 				.getBean(WebappApplication.class).exe();
 	}
 
-	private final TodoService todoService;
 
 	void exe() {
-		System.out.println("GO");
-		Todo todo1 = new Todo();
-		todo1.setTodo("A");
-		todo1.setDetail("a");
-		todoService.insertTodo(todo1);
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		String digest = encoder.encode("adminpass");
+		System.out.println(digest);
+		digest = encoder.encode("userpass");
+		System.out.println(digest);
 	}
 }
